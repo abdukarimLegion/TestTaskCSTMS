@@ -1,0 +1,42 @@
+
+spring:
+  server:
+   tomcat:
+     max-swallow-size: 10MB
+  application:
+    name : "TestTaskGBW"
+
+  datasource:
+    url: jdbc:postgresql://roundhouse.proxy.rlwy.net:50921/railway
+    username: postgres
+    password: rnrIjzwmfJFgdkKXdQfhVjPhaHpJLOtU
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10  # O'zgartirish mumkin
+      minimum-idle: 5  # O'zgartirish mumkin
+      connection-timeout: 30000  # Millisekundlarda
+      idle-timeout: 600000  # Millisekundlarda
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+server:
+  port: 8081
+
+  # File Storage Configuration
+file:
+  upload-dir : uploads/
+
